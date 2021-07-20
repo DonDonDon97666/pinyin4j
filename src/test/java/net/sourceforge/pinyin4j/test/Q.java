@@ -25,18 +25,12 @@ public class Q extends TestCase {
     }
 
     public void testMulti() throws Exception {
-        MultiPinyinConfig.multiPinyinPath = "/Users/yiboliu/my_multi_pinyin.txt";
-        System.out.println(PinyinHelper.toHanYuPinyinString("呵呵...", outputFormat, ";", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("吸血鬼...", outputFormat, ";", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("吸血鬼日记...", outputFormat, ";", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("我还要去图书馆还书...", outputFormat, "", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("一五一十", outputFormat, "", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("女医明妃传", outputFormat, ";", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("一人做事一人当还", outputFormat, ".", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("梦之安魂曲", outputFormat, ",", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("长春..", outputFormat, ",", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("长春不老/", outputFormat, ",", true));
-        System.out.println(PinyinHelper.toHanYuPinyinString("刘一波", outputFormat, ",", false));
+        //MultiPinyinConfig.multiPinyinPath = "E:/open-source-project/pinyin4j/src/main/resources/pinyindb/multi_pinyin_extend.txt";
+        MultiPinyinConfig.multiPinyinPath = "/pinyindb/multi_pinyin_extend.txt";
+        System.out.println(PinyinHelper.toHanYuPinyinString("长上...", outputFormat, ";", false));
+        System.out.println(PinyinHelper.toHanYuPinyinString("长亲...", outputFormat, ";", false));
+        System.out.println(PinyinHelper.toHanYuPinyinString("长假...", outputFormat, ";", false));
+        System.out.println(PinyinHelper.toHanYuPinyinString("吴延昭...", outputFormat, ";", false));
     }
 
     public void testMore() throws Exception {
@@ -44,7 +38,7 @@ public class Q extends TestCase {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("/Users/yiboliu/pinyin_pinyin4j.txt"));
         String line;
         while ((line = bufferedReader.readLine()) != null) {
-            bufferedWriter.write(PinyinHelper.toHanYuPinyinString(line, outputFormat, "", true) + "\n");
+            bufferedWriter.write(PinyinHelper.toHanYuPinyinString(line, outputFormat, "", true) + "/n");
         }
         bufferedWriter.flush();
         bufferedWriter.close();

@@ -1,5 +1,7 @@
 package net.sourceforge.pinyin4j.multipinyin;
 
+import net.sourceforge.pinyin4j.ResourceHelper;
+
 import java.io.*;
 import java.util.Hashtable;
 
@@ -129,6 +131,17 @@ public class Trie {
             if (userMultiPinyinFile.exists()) {
                 loadMultiPinyin(new FileInputStream(userMultiPinyinFile));
             }
+        }
+    }
+
+    /**
+     * 从classpath加载用户自定义扩展词库
+     */
+    public void loadMultiPinyinExtendFromClasspath() throws IOException {
+        String path = MultiPinyinConfig.multiPinyinPath;
+        if (path != null) {
+            BufferedInputStream resourceInputStream = ResourceHelper.getResourceInputStream(path);
+            loadMultiPinyin(resourceInputStream);
         }
     }
 
